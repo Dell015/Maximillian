@@ -34,6 +34,9 @@ export default function RangeCalendar({ start, end, min, onChange }: Props) {
 
   const months = [month, new Date(month.getFullYear(), month.getMonth() + 1, 1)];
   const choosingEnd = Boolean(start && !end);
+  const span = (a: string, b: string) => Math.round((parse(b).getTime() - parse(a).getTime()) / 86400000);
+  const count = start && end ? span(start, end) : choosingEnd && hover > start ? span(start, hover) : 0;
+  const nightsLabel = (n: number) => `${n} ${n === 1 ? "night" : "nights"}`;
 
   return (
     <div className="cal" onMouseLeave={() => setHover("")}>
@@ -47,7 +50,21 @@ export default function RangeCalendar({ start, end, min, onChange }: Props) {
           <ChevronLeft strokeWidth={1.5} />
         </button>
         <p className="cal__hint" aria-live="polite">
-          {choosingEnd ? "Now choose your check-out date" : start && end ? "Tap a date to start again" : "Choose your check-in date"}
+          {start && end ? (
+            <>
+              <strong className="cal__count">{nightsLabel(count)}</strong> · tap a date to start again
+            </>
+          ) : choosingEnd ? (
+            count ? (
+              <>
+                Check out here: <strong className="cal__count">{nightsLabel(count)}</strong>
+              </>
+            ) : (
+              "Now choose your check-out date"
+            )
+          ) : (
+            "Choose your check-in date"
+          )}
         </p>
         <button
           type="button"

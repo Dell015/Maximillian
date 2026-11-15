@@ -351,6 +351,13 @@ export default function BookingFlow({ initial }: { initial: Initial }) {
                   <em>by 12:00 noon</em>
                 </div>
               </div>
+              {nights > 14 && (
+                <p className="note note--warn" role="status">
+                  That’s {nights} nights, {fmt(checkIn)} to {fmt(checkOut)}. If that’s right, wonderful: for stays this
+                  long, call <a href={hotel.mobile.href}>{hotel.mobile.display}</a> and ask about a long-stay rate. If not,
+                  tap a new check-in date below.
+                </p>
+              )}
               {today && (
                 <RangeCalendar
                   start={checkIn}
