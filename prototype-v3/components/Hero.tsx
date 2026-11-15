@@ -61,7 +61,10 @@ export default function Hero() {
       </div>
 
       <div className="hero__foot" aria-hidden="true">
-        <span>Front desk open 24 hours</span>
+        <span className="open">
+          <i className="live" />
+          Front desk open 24 hours
+        </span>
         <span className="hero__cue">
           <i />
         </span>

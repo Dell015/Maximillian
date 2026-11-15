@@ -88,6 +88,7 @@ export default function EatDrink() {
               plated fish by evening; a buffet when the house is full.
             </p>
             <p className="hours" data-reveal>
+              <i className="live" />
               Open daily, 6:00 AM to 9:30 PM
             </p>
           </div>
@@ -123,7 +124,6 @@ export default function EatDrink() {
               </figure>
             ))}
           </div>
-          <p className="wrap cap">The dining rooms, set for breakfast, dinner and private tables</p>
         </div>
       </section>
 

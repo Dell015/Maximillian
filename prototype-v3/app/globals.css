@@ -18,6 +18,10 @@
   --gold: #bfa52b;
   --gold-ink: #7a6812;
   --gold-soft: #d9c77a;
+  /* Lamplight: used sparingly, where something is open, chosen or moving. */
+  --amber: #d08a35;
+  --amber-ink: #9a5814;
+  --amber-wash: rgb(208 138 53 / 0.15);
   --line: rgb(20 32 43 / 0.14);
   --line-l: rgb(251 249 242 / 0.22);
 
@@ -1913,4 +1917,125 @@ ul {
     transition-duration: 0.01ms !important;
     transition-delay: 0s !important;
   }
+}
+
+/* ---------- Amber: signs of life ---------- */
+
+::selection {
+  color: var(--ink);
+  background: var(--amber);
+}
+:focus-visible {
+  outline-color: var(--amber);
+}
+.kicker__rule {
+  background: var(--amber);
+}
+/* A small lamp that is on: anything open right now */
+.live {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-right: 0.6rem;
+  background: var(--amber);
+  border-radius: 50%;
+  box-shadow: 0 0 0.6rem var(--amber);
+}
+.live::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--amber);
+  animation: glow 2.6s var(--ease) infinite;
+}
+@keyframes glow {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70%,
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+.open {
+  display: inline-flex;
+  align-items: center;
+}
+.open--inline {
+  margin-left: auto;
+  color: rgb(251 249 242 / 0.8);
+}
+.hours {
+  display: flex;
+  align-items: center;
+}
+/* Warm light pooling at the foot of the night photographs */
+.hero__veil,
+.scene__shade,
+.reserve__veil,
+.feast__shade {
+  isolation: isolate;
+}
+.hero__veil::after,
+.scene__shade::after,
+.reserve__veil::after,
+.feast__shade::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(110% 55% at 50% 100%, rgb(208 138 53 / 0.3), transparent 72%);
+  pointer-events: none;
+}
+.scene__when {
+  text-shadow: 0 0 2.5rem rgb(208 138 53 / 0.4);
+}
+/* Movement and choice */
+.house__bar i,
+body::before {
+  background: var(--amber);
+}
+.nav__list a,
+.bigline {
+  background-image: linear-gradient(var(--amber), var(--amber));
+}
+.nav--open .nav__list a:hover {
+  color: var(--amber);
+}
+.room.is-active .room__name {
+  color: var(--amber-ink);
+}
+.welcome__facts dt,
+.hours,
+.voice p {
+  color: var(--amber-ink);
+}
+.spec dt,
+.kicker--light {
+  color: #e6ad66;
+}
+.voices__num {
+  color: var(--ink);
+}
+.voices__num span {
+  color: var(--amber-ink);
+}
+.voice {
+  border-top: 2px solid var(--amber);
+}
+@media (prefers-reduced-motion: reduce) {
+  .live::after {
+    animation: none;
+  }
+}
+
+.kicker {
+  flex-wrap: wrap;
+}
+.open--inline {
+  white-space: nowrap;
 }

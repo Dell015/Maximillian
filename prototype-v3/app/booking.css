@@ -846,3 +846,73 @@
     transition: none;
   }
 }
+
+/* Amber accents: the stay you are building glows a little */
+.cal__day.in-range::before,
+.cal__day.has-range::before {
+  background: var(--amber-wash);
+}
+.cal__day.is-start span,
+.cal__day.is-end span {
+  box-shadow: 0 0 0 3px var(--amber-wash);
+}
+.steps .is-done i {
+  background: var(--amber-ink);
+  border-color: var(--amber-ink);
+}
+.bk__picked .is-set small,
+.review__block h2,
+.sum__perks svg {
+  color: var(--amber-ink);
+}
+.opt.is-selected {
+  box-shadow: 0 0 0 1px var(--navy), 0 0.75rem 2rem rgb(208 138 53 / 0.2);
+}
+.opt__badge,
+.btn--chosen {
+  color: var(--paper);
+  background: var(--amber-ink);
+  border-color: var(--amber-ink);
+}
+.bk__bar {
+  border-top: 2px solid var(--amber);
+}
+.sum {
+  border-top: 3px solid var(--amber);
+}
+.done__tick {
+  background: var(--amber-ink);
+  box-shadow: 0 0 0 0.6rem var(--amber-wash);
+}
+.sum__help {
+  display: block;
+}
+.sum__help .live {
+  vertical-align: 0.05em;
+}
+@media (min-width: 960px) {
+  .bk__bar {
+    border-top: 1px solid var(--line);
+  }
+}
+
+/* The action button never truncates: a short label on phones, the full one on desktops. */
+.bk__barsum {
+  flex: 1;
+}
+.bk__go {
+  max-width: none;
+  overflow: visible;
+  text-overflow: clip;
+}
+.bk__go-l {
+  display: none;
+}
+@media (min-width: 960px) {
+  .bk__go-s {
+    display: none;
+  }
+  .bk__go-l {
+    display: inline;
+  }
+}

@@ -85,7 +85,6 @@ export default function HouseRail() {
             <div className="slide__frame">
               <Photo slug={f.slug} alt={f.alt} fill sizes="(min-width: 900px) 50vw, 80vw" imgClass="slide__img" />
             </div>
-            <figcaption className="cap cap--light">{f.caption}</figcaption>
           </figure>
         ))}
         <div className="house__end" aria-hidden="true" />

@@ -15,6 +15,10 @@ export default function Reserve() {
         <p className="kicker kicker--light" data-reveal>
           <span className="kicker__rule" />
           Reserve direct
+          <span className="open open--inline">
+            <i className="live" />
+            Answering now
+          </span>
         </p>
         <h2 id="reserve-h" className="title title--hero title--light" data-lines>
           Stay a night. Stay the weekend.

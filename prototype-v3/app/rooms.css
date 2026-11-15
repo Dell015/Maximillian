@@ -754,3 +754,34 @@
 .compare__scroll {
   scroll-padding-left: calc(9rem + var(--gutter));
 }
+
+/* Amber accents */
+.card__tier {
+  color: var(--amber-ink);
+}
+.textlink:hover {
+  color: var(--amber-ink);
+}
+.gal__dots i.is-on {
+  background: var(--amber);
+}
+.chip.is-on {
+  box-shadow: inset 0 -2px 0 var(--amber);
+}
+.compare .yes,
+.compare__price td {
+  color: var(--amber-ink);
+}
+.rd__facts svg,
+.card__facts svg,
+.amen svg {
+  color: var(--amber-ink);
+}
+.rd__book {
+  border-top: 2px solid var(--amber);
+}
+@media (min-width: 960px) {
+  .rd__book {
+    border-top: 3px solid var(--amber);
+  }
+}

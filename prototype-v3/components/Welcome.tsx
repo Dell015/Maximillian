@@ -33,9 +33,6 @@ export default function Welcome() {
             <div className="frame frame--arch" data-mask="right">
               <Photo slug="courtyard-up" alt="Looking up from the courtyard to the sky" fill sizes="(min-width: 900px) 28vw, 64vw" />
             </div>
-            <figcaption className="cap" data-reveal>
-              Looking up from the courtyard
-            </figcaption>
           </figure>
           <dl className="welcome__facts">
             <div data-reveal>

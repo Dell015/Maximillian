@@ -153,11 +153,12 @@ export default function BookingFlow({ initial }: { initial: Initial }) {
     else setRef("MX-" + Math.random().toString(36).slice(2, 8).toUpperCase());
   };
 
-  const primary: Record<Step, string> = {
-    1: nights > 0 ? `See rooms for ${nights} ${nights === 1 ? "night" : "nights"}` : "See rooms",
-    2: room ? `Continue with ${room.name}` : "Choose a room",
-    3: "Review booking",
-    4: "Send booking request",
+  // Short on a phone (the bar already shows the room and price), fuller on a desktop.
+  const primary: Record<Step, [string, string]> = {
+    1: ["See rooms", nights > 0 ? `See rooms for ${nights} ${nights === 1 ? "night" : "nights"}` : "See rooms"],
+    2: ["Continue", room ? `Continue with ${room.name}` : "Continue"],
+    3: ["Review", "Review booking"],
+    4: ["Send request", "Send booking request"],
   };
 
   const toggleRequest = (r: string) =>
@@ -272,6 +273,7 @@ export default function BookingFlow({ initial }: { initial: Initial }) {
         </li>
       </ul>
       <p className="sum__help">
+        <i className="live" />
         Prefer to talk? Call <a href={hotel.mobile.href}>{hotel.mobile.display}</a>, any hour.
       </p>
     </>
@@ -674,7 +676,8 @@ export default function BookingFlow({ initial }: { initial: Initial }) {
               )}
             </div>
             <button type="button" className="btn bk__go" onClick={advance}>
-              {primary[step]}
+              <span className="bk__go-s">{primary[step][0]}</span>
+              <span className="bk__go-l">{primary[step][1]}</span>
             </button>
           </div>
         </div>
