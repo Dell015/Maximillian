@@ -45,7 +45,7 @@ export default function RoomLedger() {
                 ))}
               </div>
               <Link
-                href={`/rooms#${r.id}`}
+                href={`/rooms/${r.id}`}
                 className="room__link"
                 onMouseEnter={() => setActive(i)}
                 onFocus={() => setActive(i)}

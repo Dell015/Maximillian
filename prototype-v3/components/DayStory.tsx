@@ -23,7 +23,6 @@ export default function DayStory() {
         const inner = scene.querySelector(".scene__inner");
         const img = scene.querySelector(".scene__main .photo__img");
         const text = scene.querySelectorAll(".scene__when, .scene__title, .scene__body, .scene__cta");
-        const aux = scene.querySelector(".scene__aux");
 
         // The photograph drifts the whole time its scene is on screen.
         if (img)
@@ -46,13 +45,6 @@ export default function DayStory() {
           duration: 1.5,
           scrollTrigger: { trigger: scene, start: "top 55%", toggleActions: "play none none reverse" },
         });
-        if (aux)
-          gsap.from(aux, {
-            yPercent: 30,
-            opacity: 0,
-            duration: 1.8,
-            scrollTrigger: { trigger: scene, start: "top 45%", toggleActions: "play none none reverse" },
-          });
 
         // When the next scene covers this one, ease it back into the dark.
         const next = scenes[i + 1];
@@ -94,9 +86,6 @@ export default function DayStory() {
                     </p>
                   ) : null}
                 </div>
-                <figure className="scene__aux">
-                  <Photo slug={c.aux} alt={c.auxAlt} fill sizes="(min-width: 900px) 22vw, 40vw" />
-                </figure>
               </div>
             </div>
           </div>

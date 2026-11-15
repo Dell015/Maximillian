@@ -30,6 +30,7 @@ export const plates: Shot[] = [
   { slug: "gusto-love", alt: "Golden fritters around a dipping sauce" },
   { slug: "faith-c", alt: "Tempura with dipping sauce and rice" },
   { slug: "gusto-pair", alt: "A plated steak beside a cocktail" },
+  { slug: "cocktail-dessert", alt: "A cocktail and dessert at the bar" },
 ];
 
 /** The dining rooms themselves. */
@@ -59,6 +60,8 @@ export const pours: Shot[] = [
 /** Everything else worth seeing: an album of the house and the people in it. */
 export const album: Shot[] = [
   { slug: "robe-woman", alt: "A guest in a robe by the window" },
+  { slug: "couple-robes", alt: "Two guests at breakfast in their robes" },
+  { slug: "pool-swim", alt: "A guest in the pool" },
   { slug: "garden-night", alt: "The garden lit low at night" },
   { slug: "team", alt: "The hotel team in the lobby" },
   { slug: "hall-bench", alt: "A bench between tall doors" },

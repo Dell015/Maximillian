@@ -1,8 +1,14 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { hotel } from "@/lib/hotel";
 
-/** Pinned to the bottom of phone screens: tap to call, tap to reserve. */
+/** Pinned to the bottom of phone screens: tap to call, tap to reserve. Room and booking
+ * pages have their own bar with the price, so this one steps aside there. */
 export default function MobileBar() {
+  const path = usePathname();
+  if (path.startsWith("/book") || /^\/rooms\/.+/.test(path)) return null;
   return (
     <div className="mobile-bar" role="navigation" aria-label="Quick actions">
       <a href={hotel.mobile.href} className="mobile-bar__call">
